@@ -45,8 +45,16 @@ while(1):
         for i in range(1):
             account_objects[confirm[find]].introduce()
 
+    elif(menu==3):
+        find=input("출금하실 계좌번호를 입력해주세요: ")
+        for i in range(1):
+            account_objects[confirm[find]].introduce()
+        money_out=int(input("입금하실 금액을 입력해주세요: "))
+        account_objects[confirm[find]].money-=money_out
+        i=confirm[find]
+        for i in range(1):
+            account_objects[confirm[find]].introduce()
 
-    # elif(menu==str(3)):
     elif(menu==4):
         for i in range(len(account_objects)):
             account_objects[i].introduce()
