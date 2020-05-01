@@ -1,4 +1,7 @@
+
 from Account import *
+
+#a=Account("123","jon",30000) 이런식으로..
 def show_menu():
     print("======Bank Menu======")
     print("1. 계좌개설")
@@ -17,11 +20,17 @@ while(1):
     if(menu==1):
         
         print("======계좌개설======")
-        account_number=str(input("계좌번호 :"))
-        for j in range(num):
-            if account_number in confirm:
-                print("이미 존재하는 계좌번호입니다. 다시 설정해주세요")
-                account_number=str(input("계좌번호 :"))
+        while(1):
+            account_number=str(input("계좌번호 :"))
+            k=0
+            for j in range(num):
+                if account_number in confirm:
+                    print("이미 존재하는 계좌번호입니다. 다시 설정해주세요")
+                    k=1
+                    break
+            if k==0:
+                break
+        
         name=str(input("이름: "))
         first_money=int(input("예금: "))
         
@@ -33,7 +42,12 @@ while(1):
         print("##계좌개설을 완료하였습니다##")
 
     elif(menu==2):
-        find=input("입금하실 계좌번호를 입력해주세요: ")
+        while(1):
+            find=input("입금하실 계좌번호를 입력해주세요: ")
+            if find in confirm:
+                break
+            print("존재하지 않는 계좌번호입니다.")
+                
         for i in range(1):
             account_objects[confirm[find]].introduce()
         money_in=int(input("입금하실 금액을 입력해주세요: "))
@@ -42,19 +56,20 @@ while(1):
         for i in range(1):
             account_objects[confirm[find]].introduce()
 
-    
     elif(menu==3):
-        find=input("출금하실 계좌번호를 입력해주세요: ")
+        while(1):
+            find=input("입금하실 계좌번호를 입력해주세요: ")
+            if find in confirm:
+                break
+            print("존재하지 않는 계좌번호입니다.")
         for i in range(1):
             account_objects[confirm[find]].introduce()
-        money_out=int(input("출금하실 금액을 입력해주세요: "))
-        if account_objects[confirm[find]].money-money_out>=0:
-            account_objects[confirm[find]].money-=money_out
-            i=confirm[find]
-        else: 
-            print("출금할수 없는 금액입니다.")
+        money_out=int(input("입금하실 금액을 입력해주세요: "))
+        account_objects[confirm[find]].money-=money_out
+        i=confirm[find]
         for i in range(1):
             account_objects[confirm[find]].introduce()
+
     elif(menu==4):
         for i in range(len(account_objects)):
             account_objects[i].introduce()
