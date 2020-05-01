@@ -1,6 +1,5 @@
 from Account import *
-
-#a=Account("123","jon",30000)
+#a=Account("123","jon",30000) 이런식으로..
 def show_menu():
     print("======Bank Menu======")
     print("1. 계좌개설")
@@ -13,6 +12,23 @@ def show_menu():
 while(1):
     show_menu()
     menu=int(input())
-    if(menu==5):
+    if(menu==1):
+        count=0
+        print("======계좌개설======")
+        account_number=str(input("계좌번호 :"))
+        name=str(input("이름: "))
+        first_money=int(input("예금: "))
+        a=Account(account_number,name,first_money)
+        print("##계좌개설을 완료하였습니다##")
+
+    # elif(menu==str(2)):
+    # elif(menu==str(3)):
+    elif(menu==4):
+        a.introduce()
+        
+    elif(menu==5):
         print("##프로그램을 종료합니다##")
-        break;    
+        break 
+        
+    else:
+        print("잘못 입력하셨습니다")
