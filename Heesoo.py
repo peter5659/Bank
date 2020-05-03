@@ -15,8 +15,8 @@ class BankingSystem:
     num=int(0)
     while(1):
         show_menu()
-        menu=int(input())
-        if(menu==1):
+        menu=(input())
+        if(menu==str(1)):
             
             print("======계좌개설======")
             while(1):
@@ -28,8 +28,7 @@ class BankingSystem:
                         k=1
                         break
                 if k==0:
-                    break
-            
+                    break            
             name=str(input("이름: "))
             first_money=int(input("예금: "))
             
@@ -40,7 +39,7 @@ class BankingSystem:
             
             print("##계좌개설을 완료하였습니다##")
 
-        elif(menu==2):
+        elif(menu==str(2)):
             while(1):
                 find=input("입금하실 계좌번호를 입력해주세요: ")
                 if find in confirm:
@@ -57,7 +56,7 @@ class BankingSystem:
             for i in range(1):
                 account_objects[confirm[find]].introduce()
 
-        elif(menu==3):
+        elif(menu==str(3)):
             while(1):
                 find=input("출금하실 계좌번호를 입력해주세요: ")
                 if find in confirm:
@@ -66,16 +65,19 @@ class BankingSystem:
             for i in range(1):
                 account_objects[confirm[find]].introduce()
             money_out=int(input("출금하실 금액을 입력해주세요: "))
-            account_objects[confirm[find]].money-=money_out
+            if money_out>account_objects[confirm[find]].money:
+                print("돈이 부족합니다")
+            else:
+                account_objects[confirm[find]].money-=money_out
             i=confirm[find]
             for i in range(1):
                 account_objects[confirm[find]].introduce()
 
-        elif(menu==4):
+        elif(menu==str(4)):
             for i in range(len(account_objects)):
                 account_objects[i].introduce()
             
-        elif(menu==5):
+        elif(menu==str(5)):
             print("##프로그램을 종료합니다##")
             break 
             
