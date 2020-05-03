@@ -5,14 +5,27 @@ class System(Account):
                 
         
         self.introduce()
-        money_in=int(input("입금하실 금액을 입력해주세요: "))
+        while(1):
+            money_in=input("입금하실 금액을 입력해주세요: ")
+            if str(0) <= money_in and money_in<str(9):
+                money_in=int(money_in)
+                break
+            else:
+                print("다시 입력해주세요")
+
         self.money+=money_in
         self.introduce()
     
     def withdraw(self):
                 
         self.introduce()
-        money_out=int(input("출금하실 금액을 입력해주세요: "))
+        while(1):
+            money_out=input("출금하실 금액을 입력해주세요: ")
+            if str(0) <= money_out and money_out<str(9):
+                money_out=int(money_out)
+                break
+            else:
+                print("다시 입력해주세요")
         if money_out>self.money:
             print("돈이 부족합니다")
         else:
@@ -51,7 +64,13 @@ class BankingSystem:
                 if k==0:
                     break            
             name=str(input("이름: "))
-            first_money=int(input("예금: "))
+            while(1):
+                first_money=input("예금: ")
+                if str(0) <= first_money and first_money<str(9):
+                    first_money=int(first_money)
+                    break
+                else:
+                    print("다시 입력해주세요")
             
             a=System(account_number,name,first_money)
             account_objects.append(a)
@@ -75,7 +94,7 @@ class BankingSystem:
                 if find in confirm:
                     break
                 print("존재하지 않는 계좌번호입니다.")
-                account_objects[confirm[find]].withdraw()
+            account_objects[confirm[find]].withdraw()
 
 
         elif(menu==str(4)):
@@ -88,5 +107,7 @@ class BankingSystem:
             
         else:
             print("잘못 입력하셨습니다")
+
+            
 
 BankingSystem.show_menu()
