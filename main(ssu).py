@@ -8,9 +8,9 @@ class System(Account):
         self.introduce()
         while(1):
             money_in=input("입금하실 금액을 입력해주세요: ")
-            if money_in=="":
-                print("입력하세요")
-                continue
+            if money_in=="" or " " in money_in :
+                    print("입력하세요")
+                    continue
             k=0
             for i in range(len(money_in)):
                 if str(0) <= money_in[i] and money_in[i]<=str(9):
@@ -31,9 +31,9 @@ class System(Account):
         self.introduce()
         while(1):
             money_out=input("출금하실 금액을 입력해주세요: ")
-            if money_out=="":
-                print("입력하세요")
-                continue
+            if money_out=="" or " " in money_out :
+                    print("입력하세요")
+                    continue
             k=0
             for i in range(len(money_out)):
                 if str(0) <= money_out[i] and money_out[i]<=str(9):
@@ -72,7 +72,7 @@ class BankingSystem:
             print("======계좌개설======")
             while(1):
                 account_number=str(input("계좌번호 :"))
-                if account_number=="":
+                if account_number=="" or " " in account_number :
                     print("입력하세요")
                     continue
                 k=0
@@ -86,9 +86,9 @@ class BankingSystem:
             while(1):
                 name=str(input("이름: "))
                 k=0
-                if name=="":
+                if name=="" or " " in name :
                     print("입력하세요")
-                    k=1
+                    continue
                     
                 if k==0:
                     break
@@ -96,7 +96,7 @@ class BankingSystem:
             while(1):
                 first_money=input("예금: ")
                 k=0
-                if first_money=="":
+                if first_money=="" or " " in first_money :
                     print("입력하세요")
                     continue
                 for i in range(len(first_money)):
