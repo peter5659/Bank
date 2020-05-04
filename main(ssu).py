@@ -72,6 +72,9 @@ class BankingSystem:
             print("======계좌개설======")
             while(1):
                 account_number=str(input("계좌번호 :"))
+                if account_number=="":
+                    print("입력하세요")
+                    continue
                 k=0
                 for j in range(num):
                     if account_number in confirm:
