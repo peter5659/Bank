@@ -1,15 +1,19 @@
+
+
 from Account import *
 
 class System(Account):
-    def deposit(self):
-                
-        
+    
+    def deposit(self):   
         self.introduce()
         while(1):
             money_in=input("입금하실 금액을 입력해주세요: ")
+            if money_in=="":
+                print("입력하세요")
+                continue
             k=0
             for i in range(len(money_in)):
-                if str(0) <= money_in[i] and money_in[i]<str(9):
+                if str(0) <= money_in[i] and money_in[i]<=str(9):
                     k+=1
             
                 else:
@@ -23,13 +27,16 @@ class System(Account):
         self.introduce()
     
     def withdraw(self):
-                
+
         self.introduce()
         while(1):
             money_out=input("출금하실 금액을 입력해주세요: ")
+            if money_out=="":
+                print("입력하세요")
+                continue
             k=0
             for i in range(len(money_out)):
-                if str(0) <= money_out[i] and money_out[i]<str(9):
+                if str(0) <= money_out[i] and money_out[i]<=str(9):
                     k+=1
                 
                 else:
@@ -45,7 +52,6 @@ class System(Account):
         self.introduce()
     
 class BankingSystem:
-#a=Account("123","jon",30000) 이런식으로..
     def show_menu():
         print("======Bank Menu======")
         print("1. 계좌개설")
@@ -74,12 +80,24 @@ class BankingSystem:
                         break
                 if k==0:
                     break            
-            name=str(input("이름: "))
+            while(1):
+                name=str(input("이름: "))
+                k=0
+                if name=="":
+                    print("입력하세요")
+                    k=1
+                    
+                if k==0:
+                    break
+
             while(1):
                 first_money=input("예금: ")
                 k=0
+                if first_money=="":
+                    print("입력하세요")
+                    continue
                 for i in range(len(first_money)):
-                    if str(0) <= first_money[i] and first_money[i]<str(9):
+                    if str(0) <= first_money[i] and first_money[i]<=str(9):
                         k+=1
                     else:
                         print("다시 입력해주세요")
@@ -126,4 +144,3 @@ class BankingSystem:
 
             
 
-BankingSystem.show_menu()
