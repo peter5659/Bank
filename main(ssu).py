@@ -7,11 +7,17 @@ class System(Account):
         self.introduce()
         while(1):
             money_in=input("입금하실 금액을 입력해주세요: ")
-            if str(0) <= money_in and money_in<str(9):
+            k=0
+            for i in range(len(money_in)):
+                if str(0) <= money_in[i] and money_in[i]<str(9):
+                    k+=1
+            
+                else:
+                    print("다시 입력해주세요")
+                    break
+            if k==len(money_in):
                 money_in=int(money_in)
                 break
-            else:
-                print("다시 입력해주세요")
 
         self.money+=money_in
         self.introduce()
@@ -21,17 +27,22 @@ class System(Account):
         self.introduce()
         while(1):
             money_out=input("출금하실 금액을 입력해주세요: ")
-            if str(0) <= money_out and money_out<str(9):
+            k=0
+            for i in range(len(money_out)):
+                if str(0) <= money_out and money_out<str(9):
+                    k+=1
+                
+                else:
+                    print("다시 입력해주세요")
+                    break
+            if k==len(money_out):
                 money_out=int(money_out)
                 break
-            else:
-                print("다시 입력해주세요")
         if money_out>self.money:
             print("돈이 부족합니다")
         else:
             self.money-=money_out
         self.introduce()
-
     
 class BankingSystem:
 #a=Account("123","jon",30000) 이런식으로..
