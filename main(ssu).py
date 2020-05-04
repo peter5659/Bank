@@ -29,7 +29,7 @@ class System(Account):
             money_out=input("출금하실 금액을 입력해주세요: ")
             k=0
             for i in range(len(money_out)):
-                if str(0) <= money_out and money_out<str(9):
+                if str(0) <= money_out[i] and money_out[i]<str(9):
                     k+=1
                 
                 else:
@@ -77,11 +77,16 @@ class BankingSystem:
             name=str(input("이름: "))
             while(1):
                 first_money=input("예금: ")
-                if str(0) <= first_money and first_money<str(9):
+                k=0
+                for i in range(len(first_money)):
+                    if str(0) <= first_money[i] and first_money[i]<str(9):
+                        k+=1
+                    else:
+                        print("다시 입력해주세요")
+                        break
+                if k==len(first_money):
                     first_money=int(first_money)
                     break
-                else:
-                    print("다시 입력해주세요")
             
             a=System(account_number,name,first_money)
             account_objects.append(a)
