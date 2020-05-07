@@ -120,23 +120,30 @@ class BankingSystem:
             while(1):
                 find=input("입금하실 계좌번호를 입력해주세요: ")
                 if find in confirm:
+                    account_objects[confirm[find]].deposit()
                     break
                 print("존재하지 않는 계좌번호입니다.")
-            account_objects[confirm[find]].deposit()
+                break
+            
 
 
         elif(menu==str(3)):
             while(1):
                 find=input("출금하실 계좌번호를 입력해주세요: ")
                 if find in confirm:
+                    account_objects[confirm[find]].withdraw()
                     break
                 print("존재하지 않는 계좌번호입니다.")
-            account_objects[confirm[find]].withdraw()
+                break
+            
 
 
         elif(menu==str(4)):
-            for i in range(len(account_objects)):
-                account_objects[i].introduce()
+            if len(account_objects)==0:
+                print("조회가능한 계좌가 없습니다!")
+            else:
+                for i in range(len(account_objects)):
+                    account_objects[i].introduce()
             
         elif(menu==str(5)):
             print("##프로그램을 종료합니다##")
