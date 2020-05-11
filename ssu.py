@@ -51,7 +51,7 @@ class System(Account):
             self.money-=money_out
         self.introduce()
 
-    def transfer1(self,money_out):
+    def transfer1(self,money_out): #개인과제
             self.introduce()
             self.money-=money_out
 
@@ -72,8 +72,8 @@ class BankingSystem:
         print("2. 입금하기")
         print("3. 출금하기")
         print("4. 전체조회")
-        print("5. 종료하기")
-        print("6. 이체하기")    #개인과제
+        print("5. 이체하기")    #개인과제
+        print("6. 종료하기")
         print("=====================")
 
     account_objects=[]
@@ -161,11 +161,11 @@ class BankingSystem:
                 for i in range(len(account_objects)):
                     account_objects[i].introduce()
             
-        elif(menu==str(5)):
+        elif(menu==str(6)):
             print("##프로그램을 종료합니다##")
             break 
 
-        elif(menu==str(6)):
+        elif(menu==str(5)): #개인과제
             while(1):
                 fromaccount=input("본인 계좌를 입력해주세요 : ")
                 toaccount=input("받을 계좌를 입력해주세요 : ")
